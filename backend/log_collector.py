@@ -1,20 +1,39 @@
+from pathlib import Path
+
+
 def collect_logs():
+
+    log_file = Path("../agents/logs.txt")
+    state_file = Path("log_state.txt")
+
+    # Read last processed line
+    with open(state_file, "r") as f:
+        last_line = int(f.read().strip())
+
+    # Read all log lines
+    with open(log_file, "r") as f:
+        lines = f.readlines()
+
+    # Read only new lines
+    new_lines = lines[last_line:]
+
+    # Update state
+    with open(state_file, "w") as f:
+        f.write(str(len(lines)))
+
     logs = []
 
-    with open("../agents/logs.txt", "r") as file:
-        for line in file:
-            parts = line.strip().split(" | ")
+    for line in new_lines:
 
-            if len(parts) == 3:
-                timestamp = parts[0]
-                event = parts[1]
-                user = parts[2].replace("user=", "")
+        parts = line.strip().split(" | ")
 
-                logs.append({
-                    "timestamp": timestamp,
-                    "event": event,
-                    "user": user
-                })
+        if len(parts) == 3:
+
+            logs.append({
+                "timestamp": parts[0],
+                "event": parts[1],
+                "user": parts[2].replace("user=", "")
+            })
 
     return logs
 

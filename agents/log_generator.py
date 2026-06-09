@@ -3,16 +3,20 @@ import time
 from datetime import datetime
 
 events = [
-    "FILE_ACCESS",
-    "FILE_ACCESS",
-    "FILE_ACCESS",
-    "FILE_ACCESS",
-    "LOGIN_SUCCESS",
-    "LOGIN_FAILED"
+    "LOGIN_FAILED",
+    "LOGIN_FAILED",
+    "LOGIN_FAILED",
+    "LOGIN_FAILED",
+    "LOGIN_FAILED",
+    "LOGIN_SUCCESS"
 ]
 
 users = [
-    "admin"
+    "admin",
+    "user1",
+    "user2",
+    "guest",
+    "roshan"
 ]
 
 while True:

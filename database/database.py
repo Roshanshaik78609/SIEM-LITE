@@ -15,6 +15,15 @@ CREATE TABLE IF NOT EXISTS alerts (
 
 )
 """)
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS recent_alerts (
+
+    user TEXT,
+    type TEXT,
+    last_alert_time TEXT
+
+)
+""")
 
 conn.commit()
 conn.close()

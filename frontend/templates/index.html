@@ -52,6 +52,28 @@ h1{
 
 }
 
+.stats{
+
+    background:#1f2937;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:30px;
+
+}
+
+.stats h2{
+
+    margin-top:0;
+
+}
+
+.stats p{
+
+    font-size:18px;
+    margin:8px 0;
+
+}
+
 table{
 
     width:100%;
@@ -112,12 +134,49 @@ tr:hover{
 <div class="cards">
 
 <div class="card">
-
 <h2>Total Alerts</h2>
-
 <p>{{ total }}</p>
+</div>
+
+<div class="card">
+<h2>🔴 High</h2>
+<p>{{ high }}</p>
+</div>
+
+<div class="card">
+<h2>🟠 Medium</h2>
+<p>{{ medium }}</p>
+</div>
+
+<div class="card">
+<h2>🟢 Low</h2>
+<p>{{ low }}</p>
+</div>
 
 </div>
+
+<div class="stats">
+
+<h2>📊 Alert Type Statistics</h2>
+
+<p>Brute Force : {{ type_stats["BRUTE_FORCE"] }}</p>
+
+<p>Password Spray : {{ type_stats["PASSWORD_SPRAY"] }}</p>
+
+<p>Suspicious File Access : {{ type_stats["SUSPICIOUS_FILE_ACCESS"] }}</p>
+
+<p>Unauthorized Access Flood : {{ type_stats["UNAUTHORIZED_ACCESS_FLOOD"] }}</p>
+
+<p>Privilege Escalation : {{ type_stats["PRIVILEGE_ESCALATION"] }}</p>
+
+</div>
+<div class="stats">
+
+<h2>⚙️ Engine Status</h2>
+
+<p>Status : {{ engine_status }}</p>
+
+<p>Refresh : {{ refresh_time }}</p>
 
 </div>
 

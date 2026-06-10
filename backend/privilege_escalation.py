@@ -1,12 +1,9 @@
 from collections import defaultdict
 from datetime import datetime
-from log_collector import collect_logs
 from alert_manager import save_alert
 
 
-def detect_privilege_escalation():
-
-    logs = collect_logs()
+def detect_privilege_escalation(logs):
 
     escalations = defaultdict(list)
 

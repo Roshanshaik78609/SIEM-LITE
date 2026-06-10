@@ -1,12 +1,11 @@
 from collections import defaultdict
 from datetime import datetime
-from log_collector import collect_logs
 from alert_manager import save_alert
 
 
-def detect_password_spray():
+def detect_password_spray(logs):
 
-    logs = collect_logs()
+    
 
     failed_users = defaultdict(set)
 

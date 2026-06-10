@@ -4,9 +4,9 @@ from log_collector import collect_logs
 from alert_manager import save_alert
 
 
-def detect_file_access():
+def detect_file_access(logs):
 
-    logs = collect_logs()
+    
 
     accesses = defaultdict(list)
 

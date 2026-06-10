@@ -69,7 +69,13 @@ def home():
     low=low,
     type_stats=type_stats,
     engine_status="🟢 Running",
-    refresh_time="Every 5 Seconds"
+    refresh_time="Every 5 Seconds",
+
+    brute_force=type_stats["BRUTE_FORCE"],
+    password_spray=type_stats["PASSWORD_SPRAY"],
+    file_access=type_stats["SUSPICIOUS_FILE_ACCESS"],
+    unauthorized=type_stats["UNAUTHORIZED_ACCESS_FLOOD"],
+    privilege=type_stats["PRIVILEGE_ESCALATION"]
 )
 
 

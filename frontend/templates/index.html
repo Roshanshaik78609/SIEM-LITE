@@ -6,6 +6,7 @@
 <title>SIEM-Lite Dashboard</title>
 
 <meta http-equiv="refresh" content="5">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 
@@ -179,6 +180,15 @@ tr:hover{
 <p>Refresh : {{ refresh_time }}</p>
 
 </div>
+<div class="stats">
+
+<h2>🥧 Alert Distribution</h2>
+
+<div style="width:700px; height:450px; margin:auto;">
+    <canvas id="pieChart"></canvas>
+</div>
+
+</div>
 
 <table>
 
@@ -212,7 +222,91 @@ tr:hover{
 {% endfor %}
 
 </table>
+<script>
 
+const ctx = document.getElementById('pieChart');
+
+new Chart(ctx, {
+
+    type: 'pie',
+
+    data: {
+
+        labels: [
+            'Brute Force',
+            'Password Spray',
+            'Suspicious File Access',
+            'Unauthorized Flood',
+            'Privilege Escalation'
+        ],
+
+        datasets: [{
+
+            data: [
+                {{ brute_force }},
+                {{ password_spray }},
+                {{ file_access }},
+                {{ unauthorized }},
+                {{ privilege }}
+            ],
+
+            backgroundColor: [
+                '#3b82f6',
+                '#ef4444',
+                '#f59e0b',
+                '#10b981',
+                '#8b5cf6'
+            ],
+
+            borderColor: "#111827",
+            borderWidth: 2
+
+        }]
+    },
+
+    options: {
+
+        responsive: true,
+        maintainAspectRatio: false,
+
+        plugins: {
+
+            legend: {
+
+                position: 'bottom',
+
+                labels: {
+
+                    color: 'white',
+                    boxWidth: 12,
+                    padding: 20,
+                    font: {
+                        size: 13
+                    }
+
+                }
+
+            },
+
+            title: {
+
+                display: true,
+                text: 'Alert Distribution',
+                color: 'white',
+                font: {
+                    size: 18
+                }
+
+            }
+
+        }
+
+    }
+
+});
+
+</script>
 </body>
+
 
 </html>

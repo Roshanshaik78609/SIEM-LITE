@@ -6,17 +6,6 @@ SIEM-Lite simulates real-world cyber attacks by generating logs, detecting suspi
 
 ---
 
-#  Dashboard
-
-> **Add screenshots of your project here**
-
-* 🖥️ SOC Dashboard
-* 📊 Alert Distribution Pie Chart
-* 📈 Alert Type Statistics
-* 🚨 Live Alert Table
-
----
-
 # 🚀 Features
 
 *  Log Generator Simulation
